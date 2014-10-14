@@ -7,10 +7,10 @@
 
     <!-- versionCode is optional and Android only -->
 
-    <name>PhoneGap Example</name>
+    <name>SalesPRO</name>
 
     <description>
-        An example for phonegap build docs. 
+        Aplicación para ayudar al proceso de compra
     </description>
 
     <preference name="Fullscreen" value="true" />
