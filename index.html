@@ -1,99 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="es" ng-app="App">
   <head>
     <meta charset="utf-8">
-    <title>Ratchet template page</title>
+    <title>IONIC TEST</title>
 
     <!-- Sets initial viewport load and disables zooming  -->
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, minimal-ui">
 
-    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-    <!-- Set a shorter title for iOS6 devices when saved to home screen -->
-    <meta name="apple-mobile-web-app-title" content="SalesPRO">
-
-    <!-- Include the compiled Ratchet CSS -->
-    <link rel="stylesheet" href="css/ratchet.min.css">
-    <link rel="stylesheet" href="css/ratchet-theme-android.min.css">
-
-
-    <!-- Intro paragraph styles. Delete once you start using this page -->
-    <link rel="stylesheet" type="text/css" href="css/salespro.css">
-
-    <!-- Include the compiled Ratchet JS -->
-    <script src="js/ratchet.min.js"></script>
+    <!--IONIC-->
+    <link rel="stylesheet" type="text/css" href="css/ionic.min.css">
   </head>
-   <body>
 
-    <!-- Make sure all your bars are the first things in your <body> -->
-    <header class="bar bar-nav">
-      <h1 class="title titulo_header">Bienvenido</h1>
-    </header>
-
-    <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
-    <div class="content">
-      <h1 class="title-logo big-logo"><span>SALES</span>PRO</h1>
-      <div class="card">
-
-          <form class="input-group">
-              <input type="text" placeholder="Usuario">
-              <input type="password" placeholder="Contaseña">
-          </form>
-            <br/>
-          <button class="btn btn-primary btn-block btn-outlined" id="btn_login">Ingresar</button>
-      </div>
-      <a class="content-padded" data-transition="slide-in" href="two.html" data-selector=".device-content">¿Olvidó su contraseña?</a>
-
-<!--MODAL-->
-    <div id="opciones" class="modal">
-        <header class="bar bar-nav">
-          <a class="icon icon-close pull-right" href="#opciones"></a>
-          <h1 class="title">Modal</h1>
-        </header>
-
-        <div class="content">
-          <ul class="table-view">
-              <li class="table-view-cell">
-                Item 1
-                <div class="toggle">
-                  <div class="toggle-handle"></div>
-                </div>
-              </li>
-              <li class="table-view-cell">
-                Item 2
-                <div class="toggle active">
-                  <div class="toggle-handle"></div>
-                </div>
-              </li>
-              <li class="table-view-cell">
-                Item 3
-                <div class="toggle">
-                  <div class="toggle-handle"></div>
-                </div>
-              </li>
-          </ul>
-        </div>
-    </div>
-<!--/MODAL-->
-
-
-    </div>
-
+  <body ng-controller="AppCtrl">
+    <ion-side-menus>
+    <ion-side-menu-content>
+    <ion-header-bar class="bar-energized">
+        <div class="buttons"><button class="button" ng-click="data.showDelete = !data.showDelete">Eliminar</button></div>
+        <h1 class="title">HOME</h1>
+        <!--<div class="buttons"><button class="button" ng-click="addTodo()">Agregar</button></div>-->
+        <button class="button icon button-clear ion-navicon-round" ng-click="toggleLeft()"></button>
+    </ion-header-bar>
+    <ion-content>
+        <ion-list show-delete="data.showDelete">
+            <ion-item ng-repeat="item in todo">
+              {{item.name}}
+              <ion-delete-button class="ion-minus-circled" ng-click="todo.splice($index, 1)"></ion-delete-button>
+          </ion-item>
+        </ion-list>
+    </ion-side-menu-content>
     
-    <script type="text/javascript">
-      //window.addEventListener('push', function(){alert("push");});
-      var ele = document.getElementById("btn_login");
-      ele.addEventListener("click", function(){
-       var algo = PUSH({
-              url        : "home.html",
-              hash       : "#",
-              timeout    : null,
-              transition : "slide-in"
-            });
-       });
+        <ion-side-menu side="right">
+          <ion-list>
+            <ion-item ng-click="addTodo()">agregar item</ion-item>
+            <ion-item openPopover($event)>hola</ion-item>
+            <ion-item>hola</ion-item>
+            <ion-item>hola</ion-item>
+          </ion-list>
+        </ion-side-menu>
 
+    </ion-content>
+    </ion-side-menus>  
+
+    <script id="my-popover.html" type="text/ng-template">
+      <ion-popover-view>
+        <ion-header-bar>
+          <h1 class="title">My Popover Title</h1>
+        </ion-header-bar>
+        <ion-content>
+          Hello!
+        </ion-content>
+      </ion-popover-view>
     </script>
+
+    <script type="text/javascript" src="js/ionic.bundle.min.js"></script>
+    <script type="text/javascript" src="js/app/App.js"></script>
   </body>
 </html>
