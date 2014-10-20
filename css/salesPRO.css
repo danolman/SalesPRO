@@ -1,0 +1,15 @@
+.title-logo{
+        font-weight: bold;
+        color: #5b5b5f;
+        width: 100%;
+        text-align: center;
+        padding-top: 15%;
+      }
+      .title-logo span{
+        color: white;
+        background-color: #71aac0;
+        font-weight: normal;
+      }
+.bar.bar-light .title{
+	color: #71aac0;
+}

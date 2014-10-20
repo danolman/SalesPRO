@@ -9,50 +9,38 @@
 
     <!--IONIC-->
     <link rel="stylesheet" type="text/css" href="css/ionic.min.css">
+    <link rel="stylesheet" type="text/css" href="css/salesPRO.css">
   </head>
 
   <body ng-controller="AppCtrl">
     <ion-side-menus>
+    <!--<ion-side-menu-content ui-view animation="slide-left-right">-->
     <ion-side-menu-content>
-    <ion-header-bar class="bar-energized">
-        <div class="buttons"><button class="button" ng-click="data.showDelete = !data.showDelete">Eliminar</button></div>
-        <h1 class="title">HOME</h1>
-        <!--<div class="buttons"><button class="button" ng-click="addTodo()">Agregar</button></div>-->
-        <button class="button icon button-clear ion-navicon-round" ng-click="toggleLeft()"></button>
-    </ion-header-bar>
-    <ion-content>
-        <ion-list show-delete="data.showDelete">
-            <ion-item ng-repeat="item in todo">
-              {{item.name}}
-              <ion-delete-button class="ion-minus-circled" ng-click="todo.splice($index, 1)"></ion-delete-button>
-          </ion-item>
-        </ion-list>
+        <ion-nav-view></ion-nav-view>
     </ion-side-menu-content>
     
         <ion-side-menu side="right">
           <ion-list>
             <ion-item ng-click="addTodo()">agregar item</ion-item>
             <ion-item openPopover($event)>hola</ion-item>
-            <ion-item>hola</ion-item>
+            <ion-item ui-sref="home">
+                SWIPE
+                <ion-option-button class="button-positive">Share</ion-option-button>
+                <ion-option-button class="button-assertive">Edit</ion-option-button>
+            </ion-item>
             <ion-item>hola</ion-item>
           </ion-list>
         </ion-side-menu>
 
-    </ion-content>
+   
     </ion-side-menus>  
 
-    <script id="my-popover.html" type="text/ng-template">
-      <ion-popover-view>
-        <ion-header-bar>
-          <h1 class="title">My Popover Title</h1>
-        </ion-header-bar>
-        <ion-content>
-          Hello!
-        </ion-content>
-      </ion-popover-view>
-    </script>
+
 
     <script type="text/javascript" src="js/ionic.bundle.min.js"></script>
+    <script type="text/javascript" src="js/angular-ui-router.min.js"></script>
     <script type="text/javascript" src="js/app/App.js"></script>
+    
+
   </body>
 </html>

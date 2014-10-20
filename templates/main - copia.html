@@ -1,0 +1,23 @@
+<ion-view title="main">
+	<ion-header-bar class="bar-energized">
+        <div class="buttons"><button class="button" ng-click="data.showDelete = !data.showDelete">Eliminar</button></div>
+        <h1 class="title">HOME</h1>
+        <!--<div class="buttons"><button class="button" ng-click="addTodo()">Agregar</button></div>-->
+        <!--<button class="button icon button-clear ion-information-circled" ng-click="showAlert()"></button>-->
+        <button class="button icon button-clear ion-information-circled" ng-click="newTask()"></button>
+        
+        <button class="button icon button-clear ion-navicon-round" ng-click="toggleLeft()"></button>
+
+    </ion-header-bar>
+    <ion-content>
+        <ion-list show-delete="data.showDelete" can-swipe="listCanSwipe">
+            <ion-item ng-repeat="item in todo">
+              {{item.name}}
+              <a ui-sref="home">home</a>
+              <ion-delete-button class="ion-minus-circled" ng-click="todo.splice($index, 1)"></ion-delete-button>
+          </ion-item>
+        </ion-list>
+        <!--<div ui-view></div>-->
+
+     </ion-content>
+</ion-view>
