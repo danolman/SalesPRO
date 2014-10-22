@@ -1,0 +1,37 @@
+<ion-view title="registroVisita">
+
+    <ion-nav-buttons side="right">
+      <button class="button icon button-clear ion-navicon-round" ng-click="toggleLeft()"></button>
+    </ion-nav-buttons>
+    
+    <ion-content>
+     <div class="list">
+      <label class="item item-input">
+        <span class="input-label">Cliente:</span>
+        <input type="text" placeholder="Ingrese cliente">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">R.U.T.:</span>
+        <input type="text" placeholder="Ingrese R.U.T.">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Dirección:</span>
+        <input type="text" placeholder="Ingrese dirección">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Hora inicio:</span>
+        <input type="text" placeholder="Ingrese hora de inicio">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Fecha:</span>
+        <input type="text" placeholder="Ingrese hora de término">
+      </label>
+    </div>
+    <ion-list>
+      <ion-item class="item item-divider">Detalle de pedido</ion-item>
+    </ion-list>
+    <div class="padding">
+        <button class="button button-block button-outline button-calm" ng-click="navegar('SalesPRO')">Guardar registro</button>
+    </div>
+     </ion-content>
+</ion-view>

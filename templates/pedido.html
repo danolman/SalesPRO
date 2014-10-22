@@ -1,0 +1,31 @@
+<ion-view title="Pedidos">
+
+    <ion-nav-buttons side="right">
+      <button class="button icon button-clear ion-navicon-round" ng-click="toggleLeft()"></button>
+    </ion-nav-buttons>
+    <ion-content>
+ <!--TOTAL--> 
+    <div class="row">
+        <div class="col col-35"><h5>Total venta:</h5></div>
+        <div class="col col-65"><h3>$4500</h3></div>
+    </div>
+ <!--LISTADO DE PRODUCTOS--> 
+    <ion-list>
+          <ion-item class="item item-icon-right" ng-repeat="producto in prods" ng-click="verProducto($index)">
+              {{producto.nombre}} <br/>
+              <p>$5.000</small>
+              <label class="toggle toggle-calm">
+               <input type="checkbox">
+               <div class="track">
+                 <div class="handle"></div>
+               </div>
+             </label>
+             <i class="icon icon-right ion-ios7-arrow-forward"></i>
+          </ion-item>
+      </ion-list>
+
+    <div class="padding">
+        <button class="button button-block button-outline button-calm" ng-click="navegar('SalesPRO')">Guardar registro</button>
+    </div>
+     </ion-content>
+</ion-view>

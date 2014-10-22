@@ -1,18 +1,33 @@
-<ion-view title="home">
-	<ion-header-bar class="bar-light">
- 		<button class="button icon button-clear ion-ios7-arrow-back" ng-click="goBack()"></button>
-        <h1 class="title">HOME</h1>
-             
-        <button class="button icon button-clear ion-navicon-round" ng-click="toggleLeft()"></button>
+<ion-view title="SalesPRO">
 
-    </ion-header-bar>
+    <ion-nav-buttons side="right">
+      <button class="button icon button-clear ion-navicon-round" ng-click="toggleLeft()"></button>
+    </ion-nav-buttons>
     <ion-content>
-        <ion-list show-delete="data.showDelete" can-swipe="listCanSwipe">
-            <ion-item ng-repeat="item in todo">
-              {{item.name}}
-              
-              <ion-delete-button class="ion-minus-circled" ng-click="todo.splice($index, 1)"></ion-delete-button>
-          </ion-item>
+          <figure class="img_usuario">
+             <img src="images/user.png">
+          </figure>
+        <ion-list >
+            <ion-item class="item-icon-right" ui-sref="registroVisita">
+                Registro de visita
+                <i class="icon icon-right ion-ios7-arrow-forward"></i>
+            </ion-item>
+            <ion-item class="item-icon-right">
+                Nuevo cliente
+                <i class="icon icon-right ion-ios7-arrow-forward"></i>
+            </ion-item>
+            <ion-item class="item-icon-right">
+                Buscar cliente
+                <i class="icon icon-right ion-ios7-arrow-forward"></i>
+            </ion-item>
+            <ion-item class="item-icon-right">
+                Vendedor
+                <i class="icon icon-right ion-ios7-arrow-forward"></i>
+            </ion-item>
+            <ion-item class="item-icon-right" ui-sref="Pedidos">
+                Pedidos
+                <i class="icon icon-right ion-ios7-arrow-forward"></i>
+            </ion-item>
         </ion-list>
 
      </ion-content>
