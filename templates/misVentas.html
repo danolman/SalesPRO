@@ -1,0 +1,69 @@
+<ion-view title="Ventas">
+
+    <ion-nav-buttons side="right">
+      <button class="button icon button-clear ion-navicon-round" ng-click="toggleLeft()"></button>
+    </ion-nav-buttons>
+    <ion-content ng-controller="VentasCtrl">
+
+          <figure class="img_usuario">
+             <img src="images/{{usuario}}.png">
+          </figure>
+
+          <h4 style="text-align: center;"><small>Bienvenid@:</small> {{usuario}}</h4>
+
+        <div class="row row-padding">
+              <div class="col">
+                <div class="percent_cont">
+                    <div class="circulo">
+                            <span class="icon icon-right ion-cash"></span> 
+                        </div>
+                    <div class="percent" id="percentVenta">
+                        <h4>Venta 80%</h4>
+                    </div>
+                </div>
+              </div>
+        </div>
+            
+        <div class="row row-padding">
+              <div class="col">
+                 <div class="percent_cont">
+                    <div class="circulo">
+                            <span class="icon icon-right ion-location"></span> 
+                        </div>
+                    <div class="percent" id="percentRecorrido">
+                        <h4>Recorrido 64%</h4>
+                    </div>
+                </div>
+              </div>
+        </div>
+            
+        <div class="row row-padding">
+              <div class="col">
+                <div class="percent_cont">
+                    <div class="circulo">
+                            <span class="icon icon-right ion-flag"></span> 
+                        </div>
+                    <div class="percent" id="percentMeta">                        
+                        <h4>Meta 71%</h4>
+                    </div>
+                </div>
+              </div>
+        </div>
+           
+        <div class="row row-padding">
+              <div class="col">
+                <div class="percent_cont">
+                    <div class="circulo">
+                            <span class="icon icon-right ion-thumbsup"></span> 
+                        </div>
+                    <div class="percent" id="percentEfectividad">
+                        <h4>Efectividad 87%</h4>
+                    </div>
+                </div>
+              </div>
+
+
+        </div>
+
+     </ion-content>
+</ion-view>

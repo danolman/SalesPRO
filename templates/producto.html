@@ -6,8 +6,19 @@
     <ion-content>
  <!--TOTAL--> 
     <div class="row">
-        <div class="col col-35"><h5>Total venta:</h5></div>
-        <div class="col col-65"><h3>$4500</h3></div>
+        <div class="col col-40"><img src="{{elemento.imagen}}"></div>
+        <div class="col col-60">
+            <h3>total: </h3>
+            <div class="list">
+              <label class="item item-input" >
+                <span class="input-label">Precio</span>
+                <input type="text" placeholder="200" />
+              </label>
+            </div>
+            <select>
+                <option ng-repeat="item in unidades">{{item}}</option>
+            </select> 
+        </div>
     </div>
  <!--LISTADO DE PRODUCTOS--> 
     <ion-list>

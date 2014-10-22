@@ -3,29 +3,25 @@
     <ion-nav-buttons side="right">
       <button class="button icon button-clear ion-navicon-round" ng-click="toggleLeft()"></button>
     </ion-nav-buttons>
-    <ion-content>
+    <ion-content ng-controller="HomeCtrl">
           <figure class="img_usuario">
-             <img src="images/user.png">
+             <img src="images/{{usuario}}.png">
           </figure>
+          <h4 style="text-align: center;"><small>Bienvenido:</small> {{usuario}}</h4>
         <ion-list >
-            <ion-item class="item-icon-right" ui-sref="registroVisita">
-                Registro de visita
+            <ion-item class="item item-icon-left item-icon-right" ui-sref="Ventas">
+            <i class="icon icon-right ion-briefcase"></i>
+                Mis ventas
                 <i class="icon icon-right ion-ios7-arrow-forward"></i>
             </ion-item>
-            <ion-item class="item-icon-right">
-                Nuevo cliente
+            <ion-item class="item item-icon-left item-icon-right">
+            <i class="icon icon-right ion-person"></i>
+                Cliente
                 <i class="icon icon-right ion-ios7-arrow-forward"></i>
             </ion-item>
-            <ion-item class="item-icon-right">
-                Buscar cliente
-                <i class="icon icon-right ion-ios7-arrow-forward"></i>
-            </ion-item>
-            <ion-item class="item-icon-right">
-                Vendedor
-                <i class="icon icon-right ion-ios7-arrow-forward"></i>
-            </ion-item>
-            <ion-item class="item-icon-right" ui-sref="Pedidos">
-                Pedidos
+            <ion-item class="item item-icon-left item-icon-right" ui-sref="Pedidos">
+            <i class="icon icon-right ion-ios7-cart"></i> 
+                Catalogo de productos
                 <i class="icon icon-right ion-ios7-arrow-forward"></i>
             </ion-item>
         </ion-list>

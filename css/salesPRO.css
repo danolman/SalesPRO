@@ -13,18 +13,84 @@
 .bar.bar-light .title{
 	color: #71aac0;
 }
-
+h1.title{
+  color: #71aac0;
+}
 .img_usuario{
         width: 40%;
         background-color: #dadada;
         border-radius: 50%;
         margin: 10% auto;
+        padding: 0;
+        overflow: hidden;
       }
       .img_usuario img{
         width: 100%;
-        padding: 20%;
+        height: 100%;
+        padding: 0;
       }
 
 .toggle{
   margin-right: 25px;
 }
+
+.percent_cont{
+  width: 95%;
+  margin: 0 auto;
+  border:  solid 2px #dad9d9;
+  height: 30px;
+  position: relative;
+
+  box-shadow: inset 0px 0px 10px 1px rgba(0,0,0,0.3);
+  -webkit-box-shadow: inset 0px 0px 10px 1px rgba(0,0,0,0.3);
+
+  border-radius: 4px;
+}
+  .percent{
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+  }
+    .percent h4{
+      color: white;
+      line-height: 100%;
+      margin: 0;
+      padding: 5px;
+      text-align: right;
+      background-color: #71aac1;
+    }
+  .circulo{
+    width: 40px;
+    height: 40px;
+     border:  solid 2px #dad9d9;
+     position: absolute;
+     right: -10px;
+     top: -5px;
+     text-align: center;
+     background: white;
+     padding-top: 5px;
+
+
+     border-radius: 50%;
+  }
+    .circulo span{
+      font-size: 1.7em;
+      color: #585858;
+      line-height: 100%;
+    }
+
+  #percentVenta{
+    width: 80%;
+  }
+  #percentRecorrido{
+    width: 64%;
+  }
+  #percentMeta{
+    width: 71%;
+  }
+  #percentEfectividad{
+    width: 80%;
+  }
+  .row-padding{
+    padding: 3%;
+  }

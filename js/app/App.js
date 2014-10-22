@@ -1,6 +1,5 @@
 var App = angular.module("App", ["ionic", "AppControllers"])
 
-
 App.config( function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
 
@@ -8,7 +7,7 @@ App.config( function($stateProvider, $urlRouterProvider) {
     	.state('login', 
     	{
     		url: '/',
-    		templateUrl: 'templates/login.html'
+    		templateUrl: 'templates/login.html',
     	})
     	.state('SalesPRO', 
     	{
@@ -34,8 +33,14 @@ App.config( function($stateProvider, $urlRouterProvider) {
     	.state('Producto', 
     	{
     		url: '/producto',
-    		templateUrl: 'templates/producto.html'
+    		templateUrl: 'templates/producto.html',
+    	})
+    	.state('Ventas', 
+    	{
+    		url: '/misVentas',
+    		templateUrl: 'templates/misVentas.html',
     	});
+
 			
 });
 
@@ -45,7 +50,9 @@ App.factory("ProductosService", function() {
 			nombre: "Comia pal perro shico", 
 			precio: 2000, 
 			detalle: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer",
-			imagen: "images/"
+			imagen: "images/",
+			destacado: true,
+			stock: 5
 		},
 		{
 			nombre: "Comia rica pero poca", 
@@ -93,10 +100,8 @@ App.factory("ProductosService", function() {
 
 	return{
           productos: productos, 
-          /*getProducto: function(index) {
-              return productos[index];
-          }*/
-           getProducto: function() {
+          
+          getProducto: function() {
               return productos;
           },
           getProd: function(index){
