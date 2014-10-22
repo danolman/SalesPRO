@@ -93,3 +93,10 @@ h1.title{
   .row-padding{
     padding: 3%;
   }
+
+  .btn-salesPRO{
+    background-color: #71aac0;
+  }
+  .img-prod{
+    width: 95%;
+  }

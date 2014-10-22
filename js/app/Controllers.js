@@ -1,16 +1,12 @@
 angular.module("AppControllers", [])
 
 .controller("AppCtrl", function($scope, $ionicSideMenuDelegate, $ionicPopup, $ionicModal, $ionicNavBarDelegate, $location, $state, ProductosService, $rootScope) {
-	$scope.prods =  ProductosService.productos;
+	//$rootScope.nombreProductoGlobal;
+	console.log("AppCtrl: " + $rootScope.nombreProductoGlobal);
 	$scope.data = {showDelete: false};
 
 	$scope.navegar = function(pagina){
 	 	$state.go(pagina);
-	 }
-
-	 $scope.verProducto = function(index){
-	 	$scope.elemento = $scope.prods[index];
-	 	$state.go("Producto");
 	 }
 
 	$scope.toggleLeft = function() {
@@ -49,9 +45,67 @@ angular.module("AppControllers", [])
 })
 
 
-//LOGIN VENTAS
+//MENU VENTAS
 .controller("VentasCtrl", function($scope, $location, $state, $rootScope){
 	$scope.usuario = $rootScope.usuarioGlobal;
-});
+})
+
+//CATALOGO MENU
+.controller("CarroComprasCtrl", function($scope, $location, $state, $rootScope, ProductosService, PromocionesService){
+	$scope.usuario = $rootScope.usuarioGlobal;
+	$scope.prods =  ProductosService.productos;
+	$scope.promos =  PromocionesService.promociones;
+
+
+	//catalogo
+	$scope.verProducto = function(index){
+	 	$scope.elementoProducto= $scope.prods[index];
+	 	$rootScope.nombreProductoGlobal= $scope.prods[index].nombre;
+	 	$rootScope.precio = $scope.prods[index].precio;
+	 	$rootScope.codigo = $scope.prods[index].precio;
+	 	$rootScope.altura = $scope.prods[index].altura;
+	 	$rootScope.potencia = $scope.prods[index].potencia;
+	 	$rootScope.tipo = $scope.prods[index].tipo;
+	 	$rootScope.imagen = $scope.prods[index].imagen;
+	 	$rootScope.stock = $scope.prods[index].stock;
+	 	$state.go("Producto");
+	 }
+
+	 $scope.verPromo= function(index){
+	 	$scope.elementoProducto = $scope.promos[index];
+	 	$rootScope.nombreProductoGlobal = $scope.promos[index].nombre;
+	 	
+	 	$rootScope.precio = $scope.promos[index].precio;
+	 	$rootScope.codigo = $scope.promos[index].precio;
+	 	$rootScope.altura = $scope.promos[index].altura;
+	 	$rootScope.potencia = $scope.promos[index].potencia;
+	 	$rootScope.tipo = $scope.promos[index].tipo;
+	 	$rootScope.imagen = $scope.promos[index].imagen;
+	 	$rootScope.stock = $scope.promos[index].stock;
+
+	 	$state.go("Producto");
+	 }
+
+	$scope.pestanhaActiva = true;
+	$scope.pestanhas = function(estado){
+		$scope.pestanhaActiva = estado;
+		$rootScope.isProductoGlobal = estado;
+	}
+
+})
+
+.filter('noFractionCurrency',
+		[ '$filter', '$locale', function(filter, locale) {
+		  var currencyFilter = filter('currency');
+		  var formats = locale.NUMBER_FORMATS;
+		  return function(amount, num, currencySymbol) {
+		    if (num===0) num = -1;
+		    var value = currencyFilter(amount, currencySymbol);
+		    var sep = value.indexOf(formats.DECIMAL_SEP)+1;
+		    var symbol = '';
+		    if (sep<value.indexOf(formats.CURRENCY_SYM)) symbol = ' '+formats.CURRENCY_SYM;
+		    return value.substring(0, sep+num)+symbol;
+		  };
+}]);
 
 

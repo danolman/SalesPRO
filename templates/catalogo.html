@@ -1,0 +1,35 @@
+<ion-view title="Catálogo de productos">
+
+    <ion-nav-buttons side="right">
+      <button class="button icon button-clear ion-navicon-round" ng-click="toggleLeft()"></button>
+    </ion-nav-buttons>
+    <ion-content ng-controller="CarroComprasCtrl">
+
+    <div class="button-bar bar-positive btn-salesPRO">
+      <a class="button" ng-click="pestanhas(true)" ng-class="{'active': pestanhaActiva}">Catálogo</a>
+      <a class="button" ng-click="pestanhas(false)" ng-class="{'active': !pestanhaActiva}">Promociones</a>
+    </div>
+ <!--LISTADO DE PRODUCTOS--> 
+    <ion-list ng-if="pestanhaActiva">
+          <a class="item item item-avatar " ng-repeat="producto in prods" ng-click="verProducto($index)">
+          <img src="{{producto.imagen}}">
+              <h2>{{producto.nombre}}</h2>
+              <p>{{producto.precio | noFractionCurrency:0}}</p>
+             <!--<i class="icon icon-right ion-ios7-arrow-forward"></i>  -->
+          </a>
+      </ion-list>
+
+      <ion-list ng-if="!pestanhaActiva">
+          <a class="item item item-avatar " ng-repeat="promo in promos | orderBy: precio" ng-click="verPromo($index)">
+          <img src="{{promo.imagen}}">
+              <h2>{{promo.nombre}}</h2>
+              <p>{{promo.precio | noFractionCurrency:0}}</p>
+             <!--<i class="icon icon-right ion-ios7-arrow-forward"></i>  -->
+          </a>
+      </ion-list>
+
+    <div class="padding">
+        <button class="button button-block button-outline button-calm" ng-click="navegar('SalesPRO')">Guardar registro</button>
+    </div>
+     </ion-content>
+</ion-view>
