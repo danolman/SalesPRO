@@ -6,6 +6,8 @@ angular.module("AppControllers", [])
 	$scope.data = {showDelete: false};
 	$rootScope.ArrayCompra = [];
 	$rootScope.totalCarroCompra = 0;
+	$rootScope.clienteGlobal = "";
+	$rootScope.vendedorGlobal = "";
 
 	$scope.navegar = function(pagina){
 	 	$state.go(pagina);
@@ -94,8 +96,10 @@ angular.module("AppControllers", [])
 		$rootScope.isProductoGlobal = estado;
 	}
 
-	$scope.onSwipeRight = function(index){
-		alert(index);
+	$scope.eliminarProducto = function(index){
+		console.log($rootScope.ArrayCompra[index].total);
+		$rootScope.totalCarroCompra  = $rootScope.totalCarroCompra - $rootScope.ArrayCompra[index].total;
+		$rootScope.ArrayCompra.splice(index, 1);
 	}
 
     //CARRO COMPRAS
@@ -122,6 +126,70 @@ angular.module("AppControllers", [])
 	$scope.verCant = function(){
 		console.log($scope.ArrayCompra.length + "comprobar");
 	}
+})
+
+.controller("ClienteCtrl", function($scope, $location, $state, $rootScope, $ionicPopup ){
+	
+	$scope.pestanhaActiva = true;
+	$scope.pestanhas = function(estado){
+		$scope.pestanhaActiva = estado;
+		$rootScope.isProductoGlobal = estado;
+	}
+
+	$scope.initMapa = function()
+	{
+		document.getElementById("mapa").innerHTML = "";
+		var marker;
+		var map;
+
+		var myLatLng = new google.maps.LatLng(-33.42311716048031, -70.60452800000002);
+			
+		var mapOptions = {
+	  		center: myLatLng,
+	  		zoom: 16,
+	  		mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+	    var map = new google.maps.Map(document.getElementById("mapa"),mapOptions);
+			
+		var image = 'images/marker.png';
+			 
+		var beachMarker = new google.maps.Marker({
+			position: myLatLng,
+			animation: google.maps.Animation.DROP,
+			map: map,
+			icon: image
+		});
+	}
+	$scope.showPopup = function() {
+	  $scope.data = {}
+	  		// An elaborate, custom popup
+		  var myPopup = $ionicPopup.show({
+		    template: '<input type="password" ng-model="data.wifi">',
+		    title: 'Información adicional',
+		    subTitle: 'Esta información será evaluada por un administrador',
+		    scope: $scope,
+		    buttons: [
+		      { text: 'Cancelar' },
+		      {
+			        text: '<b>Enviar</b>',
+			        type: 'button-positive',
+			        onTap: function(e) {
+			          if (!$scope.data.wifi) {
+			            //don't allow the user to close unless he enters wifi password
+			            e.preventDefault();
+			          } else {
+			            return $scope.data.wifi;
+			          }
+			        }
+			      },
+			    ]
+			  });
+			  myPopup.then(function(res) {
+			    console.log('Tapped!', res);
+			  });
+			  
+	 };
+
 })
 
 .filter('noFractionCurrency',

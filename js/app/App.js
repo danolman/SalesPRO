@@ -14,11 +14,6 @@ App.config( function($stateProvider, $urlRouterProvider) {
     		url: '/SalesPRO',
     		templateUrl: 'templates/home.html'
     	})
-    	.state('main', 
-    	{
-    		url: '/main',
-    		templateUrl: 'templates/main.html'
-    	})
     	.state('registroVisita', 
     	{
     		url: '/registroVisita',
@@ -45,6 +40,11 @@ App.config( function($stateProvider, $urlRouterProvider) {
     	{
     		url: '/misVentas',
     		templateUrl: 'templates/misVentas.html',
+    	})
+    	.state('DetalleCliente', 
+    	{
+    		url: '/cliente',
+    		templateUrl: 'templates/detalleCliente.html',
     	});
 
 			

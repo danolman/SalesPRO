@@ -1,0 +1,47 @@
+<ion-view title="Detalle cliente">
+
+    <ion-nav-buttons side="right">
+      <button class="button icon button-clear ion-navicon-round" ng-click="toggleLeft()"></button>
+    </ion-nav-buttons>
+    <ion-content ng-controller="ClienteCtrl" data-ng-init="initMapa()">
+
+    <div class="button-bar bar-positive btn-salesPRO">
+      <a class="button" ng-click="pestanhas(true)" ng-class="{'active': pestanhaActiva}"> Datos</a>
+      <a class="button" ng-click="pestanhas(true)" ng-class="{'active': pestanhaActiva}">Historial</a>
+      <a class="button" ng-click="pestanhas(false)" ng-class="{'active': !pestanhaActiva}" ui-sref="CarroCompras"><i class="icon ion-ios7-cart-outline"></i>  <i class="icon ion-ios7-arrow-forward"></i></a>
+    </div>
+
+ <!--DATOS CLIENTE--> 
+    <ion-list>
+          <ion-item><h3><small>Nombre:</small> <strong></strong>Juan Pérez</h3></ion-item>
+          <ion-item><h3><small>Última visita:</small> 25/8/2014</h3></ion-item>
+      </ion-list>
+
+  <!--MAPA--> 
+      <div class="card">
+          <div class="item item-divider"> <!--item-positive-->
+            <small>Av. La Dehesa N°1245, Las Condes</small>
+          </div>
+          <div class="item item-text-wrap" id="mapa"></div>
+      </div>
+
+  <!--HISTORIAL--> 
+      <div class="padding">
+        <button class="button button-block button-positive" ng-click="showPopup()">Añadir información</button>
+      </div>
+
+  <!--INFORMACION ADICIONAL--> 
+      <ion-list >
+          <ion-item class="item item-avatar">
+            <img src="images/Paulina.png">
+              <p>No atiende fines de semana</p>
+          </ion-item>
+          <ion-item class="item item-avatar">
+            <img src="images/Christian.png">
+              <p>Siempre compra las últimas promociones</p>
+          </ion-item>
+          
+      </ion-list>
+
+     </ion-content>
+</ion-view>

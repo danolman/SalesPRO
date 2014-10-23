@@ -16,6 +16,8 @@
     <preference name="Fullscreen" value="true" />
     <preference name="orientation" value="portrait" />
 
+    <access origin="*" />
+
     <author href="https://build.phonegap.com" email="support@phonegap.com">
         Hardeep Shoker 
     </author>

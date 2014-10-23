@@ -13,7 +13,7 @@
         <h2><small>Total compra: </small>{{totalCarroCompra | noFractionCurrency:0}}</h2>
       </div>
        <div class="item">
-        <h2><small>Cliente:</small> Juan Pérez</h2>
+        <h3><small>Cliente:</small> Juan Pérez</h2>
       </div>
     </div>
 
@@ -22,12 +22,13 @@
         <button class="button button-block button-positive" ng-click="verCant()">Ingresar pedido</button>
     </div>
  <!--LISTADO DE PRODUCTOS--> 
-    <ion-list  can-swipe="true">
-          <ion-item class="item item item-avatar" ng-repeat="compra in ArrayCompra">
+    <ion-list  show-delete="shouldShowDelete">
+          <ion-item class="item item item-avatar item-icon-right" ng-repeat="compra in ArrayCompra">
               <img src="{{compra.imagen}}">
               <h2>{{compra.nombreProducto}}</h2>
               <p>{{compra.precioUnidad | noFractionCurrency:0}} |  {{compra.cant}} unidades</p>
-              <ion-option-button class="button-assertive">Eliminar</ion-option-button>
+
+              <i class="icon ion-ios7-close-empty" ng-click="eliminarProducto($index)"></i>
           </ion-item>
       </ion-list>
 
