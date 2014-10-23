@@ -2,16 +2,7 @@ angular.module("AppServices", [])
 
 .factory("ProductosService", function() {
 	var productos = [
-		{
-			nombre: "CRAZONI", 
-			codigo: "92251",
-			precio: 25000, 
-			altura: 1100,
-			potencia: "1X60W",
-			tipo: "colgante",
-			imagen: "productos/razoni.jpg",
-			stock: 5
-		},
+		
 		{
 			nombre: "PETTO", 
 			codigo: "92356",
@@ -33,14 +24,14 @@ angular.module("AppServices", [])
 			stock: 6
 		},
 		{
-			nombre: "VETRO", 
-			codigo: "3041",
-			precio: 31000, 
+			nombre: "CRAZONI", 
+			codigo: "92251",
+			precio: 25000, 
 			altura: 1100,
-			potencia: "1X100W",
+			potencia: "1X60W",
 			tipo: "colgante",
-			imagen: "productos/vetro.jpg",
-			stock: 2
+			imagen: "productos/razoni.jpg",
+			stock: 5
 		},
 		{
 			nombre: "DEBED", 
@@ -53,14 +44,14 @@ angular.module("AppServices", [])
 			stock: 2
 		},
 		{
-			nombre: "UPPSALA", 
-			codigo: "7422",
-			precio: 25000, 
+			nombre: "ALEA", 
+			codigo: "91872",
+			precio: 35000, 
 			altura: 1100,
-			potencia: "1X100W",
+			potencia: "1X60W",
 			tipo: "colgante",
-			imagen: "productos/uppsala.jpg",
-			stock: 2
+			imagen: "productos/alea.jpg",
+			stock: 6
 		},
 		{
 			nombre: "FARGO", 
@@ -73,15 +64,16 @@ angular.module("AppServices", [])
 			stock: 8
 		},
 		{
-			nombre: "FORTUNA", 
-			codigo: "7422",
-			precio: 15000, 
+			nombre: "VETRO", 
+			codigo: "3041",
+			precio: 31000, 
 			altura: 1100,
-			potencia: "1X60W",
+			potencia: "1X100W",
 			tipo: "colgante",
-			imagen: "productos/fortuna.jpg",
-			stock: 8
+			imagen: "productos/vetro.jpg",
+			stock: 2
 		}
+		
 	];
 
 	return{

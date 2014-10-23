@@ -24,6 +24,12 @@ App.config( function($stateProvider, $urlRouterProvider) {
     		url: '/registroVisita',
     		templateUrl: 'templates/registro-visita.html'
     	})
+    	.state('CarroCompras', 
+    	{
+    		url: '/carroCompras',
+    		templateUrl: 'templates/carroCompras.html'
+    
+    	})
     	.state('Catalogo', 
     	{
     		url: '/catalogo',

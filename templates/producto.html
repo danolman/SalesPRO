@@ -11,11 +11,11 @@
               <h3><small>Precio:</small> {{precio | noFractionCurrency:0}}</h3>
               <label class="item item-input">
                 <span class="input-label">Cant.</span>
-                <input type="number" placeholder="1" max="{{stock}}">
+                <input type="number" value="1" max="{{stock}}" id="cantidadProducto">
               </label>
              <!-- <label for="cant">Cantidad : </label><input id="cant" type="number" value="1"/>
               <input type="number">-->
-              <button class="button button-block button-small button-balanced" >
+              <button class="button button-block button-small button-balanced" ng-click="anadirCarroCompras('{{nombreProductoGlobal}}', '{{imagen}}' ,{{precio}})">
                   <i class="icon icon-right ion-ios7-cart"></i> 
                   Agregar
               </button>     

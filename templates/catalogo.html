@@ -11,25 +11,22 @@
     </div>
  <!--LISTADO DE PRODUCTOS--> 
     <ion-list ng-if="pestanhaActiva">
-          <a class="item item item-avatar " ng-repeat="producto in prods" ng-click="verProducto($index)">
+          <a class="item item item-avatar item-icon-right" ng-repeat="producto in prods" ng-click="verProducto($index)">
           <img src="{{producto.imagen}}">
               <h2>{{producto.nombre}}</h2>
-              <p>{{producto.precio | noFractionCurrency:0}}</p>
-             <!--<i class="icon icon-right ion-ios7-arrow-forward"></i>  -->
+              <p><small>{{producto.precio | noFractionCurrency:0}} | {{producto.tipo}}</small></p>
+              <i class="icon icon-right ion-ios7-arrow-right"></i>
           </a>
       </ion-list>
 
       <ion-list ng-if="!pestanhaActiva">
-          <a class="item item item-avatar " ng-repeat="promo in promos | orderBy: precio" ng-click="verPromo($index)">
+          <a class="item item item-avatar item-icon-right" ng-repeat="promo in promos" ng-click="verPromo($index)">
           <img src="{{promo.imagen}}">
               <h2>{{promo.nombre}}</h2>
               <p>{{promo.precio | noFractionCurrency:0}}</p>
-             <!--<i class="icon icon-right ion-ios7-arrow-forward"></i>  -->
+              <i class="icon icon-right ion-ios7-arrow-right"></i>
           </a>
       </ion-list>
-
-    <div class="padding">
-        <button class="button button-block button-outline button-calm" ng-click="navegar('SalesPRO')">Guardar registro</button>
-    </div>
+      
      </ion-content>
 </ion-view>

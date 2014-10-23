@@ -4,6 +4,8 @@ angular.module("AppControllers", [])
 	//$rootScope.nombreProductoGlobal;
 	console.log("AppCtrl: " + $rootScope.nombreProductoGlobal);
 	$scope.data = {showDelete: false};
+	$rootScope.ArrayCompra = [];
+	$rootScope.totalCarroCompra = 0;
 
 	$scope.navegar = function(pagina){
 	 	$state.go(pagina);
@@ -55,7 +57,7 @@ angular.module("AppControllers", [])
 	$scope.usuario = $rootScope.usuarioGlobal;
 	$scope.prods =  ProductosService.productos;
 	$scope.promos =  PromocionesService.promociones;
-
+	$scope.totalCarro ="";
 
 	//catalogo
 	$scope.verProducto = function(index){
@@ -92,6 +94,34 @@ angular.module("AppControllers", [])
 		$rootScope.isProductoGlobal = estado;
 	}
 
+	$scope.onSwipeRight = function(index){
+		alert(index);
+	}
+
+    //CARRO COMPRAS
+	$scope.anadirCarroCompras = function(nombre, imagenRuta ,precio){
+		var cantidad = document.getElementById('cantidadProducto').value;
+		var totalProd = precio * cantidad;
+		var productoComprado = 
+		{
+			'nombreProducto' 	: nombre,
+			'imagen'			: imagenRuta,
+			'precioUnidad' 		: precio,
+			'cant' 				: cantidad,
+			'total' 			: totalProd
+		}
+
+		$rootScope.totalCarroCompra = $rootScope.totalCarroCompra + totalProd;
+		console.log($rootScope.totalCarroCompra);
+		$rootScope.ArrayCompra.push(productoComprado);
+		console.log($scope.ArrayCompra.length + "antes");
+		$state.go('CarroCompras');
+		console.log(productoComprado);
+	}
+
+	$scope.verCant = function(){
+		console.log($scope.ArrayCompra.length + "comprobar");
+	}
 })
 
 .filter('noFractionCurrency',

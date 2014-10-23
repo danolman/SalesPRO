@@ -1,0 +1,35 @@
+<ion-view title="Carro de compras">
+
+    <!--<ion-nav-buttons side="right">
+      <button class="button icon button-clear ion-navicon-round" ng-click="toggleLeft()"></button>
+    </ion-nav-buttons>-->
+    <ion-content ng-controller="CarroComprasCtrl">
+    <div class="button-bar">
+      
+    </div>
+
+    <div class="list list-inset">
+      <div class="item">
+        <h2><small>Total compra: </small>{{totalCarroCompra | noFractionCurrency:0}}</h2>
+      </div>
+       <div class="item">
+        <h2><small>Cliente:</small> Juan Pérez</h2>
+      </div>
+    </div>
+
+    <div class="padding">
+        <button class="button button-block button-balanced" ui-sref="Catalogo">Agregar producto</button>
+        <button class="button button-block button-positive" ng-click="verCant()">Ingresar pedido</button>
+    </div>
+ <!--LISTADO DE PRODUCTOS--> 
+    <ion-list  can-swipe="true">
+          <ion-item class="item item item-avatar" ng-repeat="compra in ArrayCompra">
+              <img src="{{compra.imagen}}">
+              <h2>{{compra.nombreProducto}}</h2>
+              <p>{{compra.precioUnidad | noFractionCurrency:0}} |  {{compra.cant}} unidades</p>
+              <ion-option-button class="button-assertive">Eliminar</ion-option-button>
+          </ion-item>
+      </ion-list>
+
+     </ion-content>
+</ion-view>
