@@ -6,24 +6,38 @@
     <ion-content ng-controller="ClienteCtrl" data-ng-init="initMapa()">
 
     <div class="button-bar bar-positive btn-salesPRO">
-      <a class="button" ng-click="pestanhas(true)" ng-class="{'active': pestanhaActiva}"> Datos</a>
-      <a class="button" ng-click="pestanhas(true)" ng-class="{'active': pestanhaActiva}">Historial</a>
-      <a class="button" ng-click="pestanhas(false)" ng-class="{'active': !pestanhaActiva}" ui-sref="CarroCompras"><i class="icon ion-ios7-cart-outline"></i>  <i class="icon ion-ios7-arrow-forward"></i></a>
+      <a class="button" ng-click="mostrarInfo(true)"> Datos</a>
+      <a class="button" ng-click="mostrarInfo(false)">Historial</a>
+      <a class="button" ui-sref="CarroCompras"><i class="icon ion-ios7-cart-outline"></i>  <i class="icon ion-ios7-arrow-forward"></i></a>
     </div>
 
  <!--DATOS CLIENTE--> 
-    <ion-list>
-          <ion-item><h3><small>Nombre:</small> <strong></strong>Juan Pérez</h3></ion-item>
-          <ion-item><h3><small>Última visita:</small> 25/8/2014</h3></ion-item>
+    <ion-list ng-show="verofalso">
+          <ion-item><h3><small>Nombre:</small> <strong>{{clienteGlobal}}</strong></h3></ion-item>
+          <ion-item>
+                <h3 ng-repeat="fecha in clientes[numeroCliente].historial" ng-show="$last"><small>Última visita: {{fecha.fecha}}</small></h3>
+          </ion-item>
       </ion-list>
 
   <!--MAPA--> 
-      <div class="card">
+      <div class="card" ng-show="verofalso">
           <div class="item item-divider"> <!--item-positive-->
-            <small>Av. La Dehesa N°1245, Las Condes</small>
+            <small>{{direccion}}</small>
           </div>
           <div class="item item-text-wrap" id="mapa"></div>
       </div>
+
+
+      <!--HISTORIAL LISTADO--> 
+      <ion-list ng-show="!verofalso">
+          <ion-item class="item-divider">Historial de compras</ion-item>
+          <ion-item class="item item-avatar" ng-repeat="item in clientes[numeroCliente].historial">
+            <img src="images/{{item.vendedor}}.png">
+              <h3>Total compra: {{item.monto | noFractionCurrency:0}}</h3>
+              <p>Vendedor: {{item.vendedor}} | {{item.fecha}}</p>
+          </ion-item>          
+      </ion-list>
+
 
   <!--HISTORIAL--> 
       <div class="padding">
@@ -32,16 +46,15 @@
 
   <!--INFORMACION ADICIONAL--> 
       <ion-list >
-          <ion-item class="item item-avatar">
-            <img src="images/Paulina.png">
-              <p>No atiende fines de semana</p>
-          </ion-item>
-          <ion-item class="item item-avatar">
-            <img src="images/Christian.png">
-              <p>Siempre compra las últimas promociones</p>
-          </ion-item>
-          
+          <ion-item class="item-divider">Información adicional</ion-item>
+          <ion-item class="item item-avatar" ng-repeat="comentario in clientes[numeroCliente].comentarios">
+            <img src="images/{{comentario.vendedor}}.png">
+              <p>{{comentario.comentario}}</p>
+          </ion-item>          
       </ion-list>
+
+
+      
 
      </ion-content>
 </ion-view>

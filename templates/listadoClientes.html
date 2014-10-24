@@ -1,0 +1,18 @@
+<ion-view title="Clientes">
+
+    <ion-nav-buttons side="right">
+      <button class="button icon button-clear ion-navicon-round" ng-click="toggleLeft()"></button>
+    </ion-nav-buttons>
+    <ion-content ng-controller="ClienteCtrl">
+   
+ <!--DATOS CLIENTE--> 
+    <ion-list>
+          <ion-item ng-repeat="cliente in clientes" class="item-icon-right" ng-click="verCliente($index)">
+              <h3>{{cliente.nombre}}</h3>
+              <p ng-repeat="dia in cliente.historial" ng-show="$last"><small>{{dia.fecha}}</small></p>
+              <i class="icon icon-right ion-ios7-arrow-forward"></i>
+          </ion-item>
+      </ion-list>
+
+     </ion-content>
+</ion-view>

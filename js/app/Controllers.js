@@ -128,8 +128,9 @@ angular.module("AppControllers", [])
 	}
 })
 
-.controller("ClienteCtrl", function($scope, $location, $state, $rootScope, $ionicPopup ){
-	
+.controller("ClienteCtrl", function($scope, $location, $state, $rootScope, $ionicPopup, ClientesService ){
+	$scope.clientes =  ClientesService.clientes;
+
 	$scope.pestanhaActiva = true;
 	$scope.pestanhas = function(estado){
 		$scope.pestanhaActiva = estado;
@@ -138,7 +139,7 @@ angular.module("AppControllers", [])
 
 	$scope.initMapa = function()
 	{
-		document.getElementById("mapa").innerHTML = "";
+		//document.getElementById("mapa").innerHTML = "";
 		var marker;
 		var map;
 
@@ -159,6 +160,18 @@ angular.module("AppControllers", [])
 			map: map,
 			icon: image
 		});
+	}
+
+	$scope.verCliente = function(index){
+		$rootScope.clienteGlobal = $scope.clientes[index].nombre;
+		$rootScope.numeroCliente = index;
+		$rootScope.direccion = $scope.clientes[index].direccion;
+		$state.go('DetalleCliente');
+	}
+
+	$scope.verofalso = true;
+	$scope.mostrarInfo = function(estado){
+		$scope.verofalso = estado;
 	}
 	$scope.showPopup = function() {
 	  $scope.data = {}

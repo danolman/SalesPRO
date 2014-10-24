@@ -41,6 +41,11 @@ App.config( function($stateProvider, $urlRouterProvider) {
     		url: '/misVentas',
     		templateUrl: 'templates/misVentas.html',
     	})
+    	.state('Clientes', 
+    	{
+    		url: '/clientes',
+    		templateUrl: 'templates/listadoClientes.html',
+    	})
     	.state('DetalleCliente', 
     	{
     		url: '/cliente',
