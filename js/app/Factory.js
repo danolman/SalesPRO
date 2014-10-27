@@ -92,29 +92,30 @@ angular.module("AppServices", [])
 	var clientes = [
 		
 		{
-			nombre : "Juan Pérez",
-			direccion: "Los Leones N° 382, Providencia",
+			nombre : "Juan Arriagada",
+			direccion: "Compania de Jesus N° 2700, Santiago",
 			historial : [
 				{
-					vendedor : "Ronald",
-					monto: 150000,
-					fecha: "21/03/2014"
+					vendedor : "Christian",
+					monto: 100000,
+					fecha: "16/06/2014"
 				},
 				{
 					vendedor : "Paulina",
-					monto: 150000,
-					fecha: "21/04/2014"
+					monto: 120000,
+					fecha: "22/07/2014"
 				},
 				{
 					vendedor : "Christian",
-					monto: 150000,
-					fecha: "21/05/2014"
+					monto: 120000,
+					fecha: "14/08/2014"
 				},
 				{
 					vendedor : "Alan",
-					monto: 150000,
-					fecha: "21/06/2014"
+					monto: 130000,
+					fecha: "15/09/2014"
 				}
+
 			],
 			comentarios : [
 				{

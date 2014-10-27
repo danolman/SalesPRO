@@ -1,6 +1,6 @@
 angular.module("AppControllers", [])
 
-.controller("AppCtrl", function($scope, $ionicSideMenuDelegate, $ionicPopup, $ionicModal, $ionicNavBarDelegate, $location, $state, ProductosService, $rootScope) {
+.controller("AppCtrl", function($scope, $ionicSideMenuDelegate, $ionicPopup, $ionicModal, $ionicPopover, $ionicNavBarDelegate, $location, $state, ProductosService, $rootScope) {
 	//$rootScope.nombreProductoGlobal;
 	console.log("AppCtrl: " + $rootScope.nombreProductoGlobal);
 	$scope.data = {showDelete: false};
@@ -17,17 +17,47 @@ angular.module("AppControllers", [])
     	$ionicSideMenuDelegate.toggleRight();
  	}
 
+ 	$ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope,
+	  }).then(function(popover) {
+	    $scope.popover = popover;
+	  });
+	 $scope.openPopover = function($event) {
+	    $scope.popover.show($event);
+	  };
+	  $scope.closePopover = function() {
+	    $scope.popover.hide();
+	  };
 })
 
 //LOGIN CONTROLLER
-.controller("LoginCtrl", function($scope, $location, $state, $rootScope){
+.controller("LoginCtrl", function($scope, $location, $state, $rootScope, $ionicPopup){
+
+	document.addEventListener("backbutton", onBackKeyDown, false);
+	function onBackKeyDown() {
+	  if($state == login){
+	  	alert($state);
+	    navigator.app.exitApp();
+	  }
+	  
+	}
 	$scope.user = "";
 	$scope.christian = "Christian";
 	$scope.ronald = "Ronald";
 	$scope.paulina = "Paulina";
 	$scope.otro = "Alan";
 	$scope.pass = "cursor123";
+	$scope.btn_atras = function(){
+		document.addEventListener("backbutton", onBackKeyDown, false);
 
+	function onBackKeyDown() {
+			if($state == login){
+				alert("hola");
+				return false;
+			}
+		    
+		}
+	}
 	$scope.login = function(){
 		var usuario = document.getElementById("usuario");
 		var pass = document.getElementById("pass");
@@ -37,7 +67,13 @@ angular.module("AppControllers", [])
 			$state.go("SalesPRO");
 		}
 		else{
-			alert("Usuaio no válido");
+			var alertPopup = $ionicPopup.alert({
+			     title: 'Error de ingreso',
+			     template: 'Por favor ingrese un usuario y contraseña válidos'
+			   });
+			   alertPopup.then(function(res) {
+			     console.log('Usuario no válido');
+			   });
 		}
 	}
 })
@@ -55,7 +91,8 @@ angular.module("AppControllers", [])
 })
 
 //CATALOGO MENU
-.controller("CarroComprasCtrl", function($scope, $location, $state, $rootScope, ProductosService, PromocionesService){
+.controller("CarroComprasCtrl", function($scope, $location, $state, $rootScope, ProductosService, PromocionesService, ClientesService, $ionicPopup, $timeout){
+	$scope.clientes =  ClientesService.clientes;
 	$scope.usuario = $rootScope.usuarioGlobal;
 	$scope.prods =  ProductosService.productos;
 	$scope.promos =  PromocionesService.promociones;
@@ -126,6 +163,25 @@ angular.module("AppControllers", [])
 	$scope.verCant = function(){
 		console.log($scope.ArrayCompra.length + "comprobar");
 	}
+
+	// Triggered on a button click, or some other target
+		$scope.showPopup = function() {
+
+		//if(cliente.value != "")
+		 var textoConfirm = "Total de venta: $" + $rootScope.totalCarroCompra + ", Asociada al cliente: " +$rootScope.clienteGlobal;
+		 var confirmPopup = $ionicPopup.confirm({
+		     title: 'Confirmar venta',
+		     template: textoConfirm
+		   });
+		   confirmPopup.then(function(res) {
+		     if(res) {
+		       $rootScope.ArrayCompra = [];
+		       $rootScope.totalCarroCompra = 0;
+		     } else {
+		       console.log('You are not sure');
+		     }
+		   });
+		 }
 })
 
 .controller("ClienteCtrl", function($scope, $location, $state, $rootScope, $ionicPopup, ClientesService ){
@@ -177,7 +233,7 @@ angular.module("AppControllers", [])
 	  $scope.data = {}
 	  		// An elaborate, custom popup
 		  var myPopup = $ionicPopup.show({
-		    template: '<input type="password" ng-model="data.wifi">',
+		    template: '<input type="text" ng-model="data.wifi">',
 		    title: 'Información adicional',
 		    subTitle: 'Esta información será evaluada por un administrador',
 		    scope: $scope,

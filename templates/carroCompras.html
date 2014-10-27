@@ -1,8 +1,9 @@
 <ion-view title="Carro de compras">
 
-    <!--<ion-nav-buttons side="right">
-      <button class="button icon button-clear ion-navicon-round" ng-click="toggleLeft()"></button>
-    </ion-nav-buttons>-->
+   <ion-nav-buttons side="left">
+      <button class="button icon button-clear ion-ios7-arrow-left" ui-sref="SalesPRO"></button>
+    </ion-nav-buttons>
+
     <ion-content ng-controller="CarroComprasCtrl">
     <div class="button-bar">
       
@@ -12,14 +13,20 @@
       <div class="item">
         <h2><small>Total compra: </small>{{totalCarroCompra | noFractionCurrency:0}}</h2>
       </div>
-       <div class="item">
-        <h3><small>Cliente:</small> Juan Pérez</h2>
-      </div>
+      <label class="item item-input item-select">
+          <div class="input-label">
+            Cliente
+          </div>
+          <select id="selectCliente">
+              <option value="no">Seleccionar cliente</option>
+              <option ng-repeat="cliente in clientes" value="{{cliente.nombre}}" >{{cliente.nombre}}</option>
+          </select>
+      </label>
     </div>
 
     <div class="padding">
         <button class="button button-block button-balanced" ui-sref="Catalogo">Agregar producto</button>
-        <button class="button button-block button-positive" ng-click="verCant()">Ingresar pedido</button>
+        <button class="button button-block button-positive" ng-click="showPopup()">Ingresar pedido</button>
     </div>
  <!--LISTADO DE PRODUCTOS--> 
     <ion-list  show-delete="shouldShowDelete">

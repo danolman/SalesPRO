@@ -1,8 +1,9 @@
 <ion-view title="Detalle cliente">
 
-    <ion-nav-buttons side="right">
-      <button class="button icon button-clear ion-navicon-round" ng-click="toggleLeft()"></button>
+   <ion-nav-buttons side="left">
+      <button class="button icon button-clear ion-ios7-arrow-left" ui-sref="Clientes"></button>
     </ion-nav-buttons>
+
     <ion-content ng-controller="ClienteCtrl" data-ng-init="initMapa()">
 
     <div class="button-bar bar-positive btn-salesPRO">
@@ -26,7 +27,6 @@
           </div>
           <div class="item item-text-wrap" id="mapa"></div>
       </div>
-
 
       <!--HISTORIAL LISTADO--> 
       <ion-list ng-show="!verofalso">
