@@ -35,13 +35,12 @@ angular.module("AppControllers", [])
 
 	document.addEventListener("backbutton", onBackKeyDown, false);
 	function onBackKeyDown() {
-		alert($state);
 	  if($state == login){
-	  	alert($state);
 	    navigator.app.exitApp();
 	  }
 	  
 	}
+
 	$scope.user = "";
 	$scope.christian = "Christian";
 	$scope.ronald = "Ronald";
