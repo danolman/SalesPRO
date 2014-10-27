@@ -35,6 +35,7 @@ angular.module("AppControllers", [])
 
 	document.addEventListener("backbutton", onBackKeyDown, false);
 	function onBackKeyDown() {
+		alert($state);
 	  if($state == login){
 	  	alert($state);
 	    navigator.app.exitApp();
