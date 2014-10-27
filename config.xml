@@ -12,11 +12,16 @@
     <description>
         Aplicación para ayudar al proceso de compra
     </description>
+
+
+    <preference name="auto-hide-splash-screen" value="false" />
+
+
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="10000" />
     <preference name="Fullscreen" value="true" />
     <preference name="orientation" value="portrait" />
-    <!--<preference name="BackgroundColor" value="0xffffffff"/>-->
+    <preference name="BackgroundColor" value="0xffffffff"/>
 
     <access origin="*" />
 
