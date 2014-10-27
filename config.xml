@@ -15,8 +15,36 @@
 
     <preference name="Fullscreen" value="true" />
     <preference name="orientation" value="portrait" />
+    <preference name="BackgroundColor" value="0xffffffff"/>
 
     <access origin="*" />
+
+    <!--ios icon-->
+    <icon src="images/icons/ios/icon-57.png" gap:platform="ios" width="57" height="57" />
+    <icon src="images/icons/ios/icon-72.png" gap:platform="ios" width="72" height="72" />
+    <icon src="images/icons/ios/icon-120.png" gap:platform="ios" width="120" height="120" />
+    <icon src="images/icons/ios/icon-57-2x.png" gap:platform="ios" width="114" height="114" />
+    <icon src="rimages/icons/ios/icon-72-2x.png" gap:platform="ios" width="144" height="144" />
+
+    <!--ios splashScreen-->
+    <gap:splash src="images/splash/ios/screen-iphone-portrait.png" gap:platform="ios" width="320" height="480" />
+    <gap:splash src="images/splash/ios/screen-iphone-portrait-2x.png" gap:platform="ios" width="640" height="960" />
+    <gap:splash src="images/splash/ios/screen-iphone5-portrait.png" gap:platform="ios" width="640" height="1136" />
+    <gap:splash src="images/splash/ios/screen-ipad-portrait.png" gap:platform="ios" width="768" height="1024" />
+    <gap:splash src="images/splash/ios/screen-ipad-portrait-2x.png" gap:platform="ios" width="1536" height="2048" />
+
+
+    <!--android icon-->
+    <icon src="images/icons/android/icon-36-ldpi.png" gap:platform="android" gap:density="ldpi" />
+    <icon src="images/icons/android/icon-48-mdpi.png" gap:platform="android" gap:density="mdpi" />
+    <icon src="images/icons/android/icon-72-hdpi.png" gap:platform="android" gap:density="hdpi" />
+    <icon src="images/icons/android/icon-96-xhdpi.png" gap:platform="android" gap:density="xhdpi" />
+
+    <!--android splashScreen-->
+    <gap:splash src="images/splash/android/screen-ldpi-portrait.png" gap:platform="android" gap:density="ldpi" />
+    <gap:splash src="images/splash/android/screen-mdpi-portrait.png" gap:platform="android" gap:density="mdpi" />
+    <gap:splash src="images/splash/android/screen-hdpi-portrait.png" gap:platform="android" gap:density="hdpi" />
+    <gap:splash src="images/splash/android/screen-xhdpi-portrait.png" gap:platform="android" gap:density="xhdpi" />
 
     <author href="https://build.phonegap.com" email="support@phonegap.com">
         Hardeep Shoker 
